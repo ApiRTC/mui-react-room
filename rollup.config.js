@@ -11,16 +11,12 @@ export default [
     {
         input: "src/index.ts",
         output: [
-
-            {
-                file: packageJson.main,
-                format: "cjs",
-                sourcemap: true,
-            },
-            // Commented out, because there was an error compiling visio-assisted :
-            // Attempted import error: 'useId' is not exported from 'react' (imported as 'e').
-            // but uncommented, subsequent were not building.. need to sort this out...
-            // maybe to build visio-assisted it is enough to just remove dist/esm directory ?
+            // CJS is not for front-end
+            // {
+            //     file: packageJson.main,
+            //     format: "cjs",
+            //     sourcemap: true,
+            // },
             {
                 file: packageJson.module,
                 format: "esm",
@@ -33,8 +29,6 @@ export default [
                 name: 'ApiRtcMuiReactRoom',
                 globals: {
                     'react': 'React',
-                    // 'react/jsx-runtime': 'React.jsx',
-                    // '@mui/material': 'MaterialUI',
                     '@apirtc/apirtc': 'apiRTC',
                     '@apirtc/react-lib': 'ApiRtcReactLib',
                     '@apirtc/mui-react-lib': 'ApiRtcMuiReactLib',
@@ -42,6 +36,7 @@ export default [
                     '@mui/material/Chip': 'MaterialUI.Chip',
                     '@mui/material/Grid': 'MaterialUI.Grid',
                     '@mui/material/Icon': 'MaterialUI.Icon',
+                    '@mui/material/Button': 'MaterialUI.Button',
                     '@mui/material/IconButton': 'MaterialUI.IconButton',
                     '@mui/material/Stack': 'MaterialUI.Stack',
                 }

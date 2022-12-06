@@ -8,7 +8,7 @@ It is based on @apirtc/react-lib and @apirtc/mui-react-lib
 
 `npm install @apirtc/mui-react-room`
 
-also you will need to install
+also you will need to add this line in your index.html
 
 '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />'
 
