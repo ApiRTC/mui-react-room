@@ -50,5 +50,5 @@ setLogLevel('warn')
 from console:
 
 ```
-ApiRtcMuiReactRoom.setLogLevel('debug')
+setApirtcMuiReactRoomLogLevel('debug')
 ```

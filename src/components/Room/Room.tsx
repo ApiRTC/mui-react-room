@@ -22,7 +22,7 @@ const Room = ({ name, credentials, registerInformation }: RoomProps) => {
     const { publishedStreams, subscribedStreams } = useConversationStreams(conversation,
         localStream ? [{ stream: localStream }] : []);
 
-    const displayStreams = useMemo(() => localStream ? Array(8).fill(localStream) : [], [localStream])
+    //const displayStreams = useMemo(() => localStream ? Array(8).fill(localStream) : [], [localStream])
     //const displayStreams = useMemo(() => subscribedStreams.length > 0 ? Array(9).fill(subscribedStreams[0]) : [], [subscribedStreams])
 
     return <Box sx={{
@@ -30,21 +30,24 @@ const Room = ({ name, credentials, registerInformation }: RoomProps) => {
         minHeight: '360px', minWidth: '640px',
     }}>
 
-        {/* <RemoteStreamsGrid> */}
-        <Box sx={{
+        <RemoteStreamsGrid>
+            {/* <Box sx={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, auto)',
-            gridTemplateRows: 'auto auto',
-        }}>
-            {displayStreams.map((stream, index) =>
-                // <Box sx={{ maxHeight: '33vh' }}>
+            gridTemplateColumns: 'repeat(4, auto)',
+            // gridTemplateRows: 'auto auto',
+            maxWidth: '100vw',
+            maxHeight: '100vh'
+        }}> */}
+            {subscribedStreams.map((stream, index) =>
                 <StreamComponent id={'subscribed-stream-' + index} key={index}
+                    // sx={{ maxWidth: '100%' }}
                     stream={stream} muted={false}
-                    controls={<><MuteButton /><AudioEnableButton /></>} />
-                // </Box>
+                    controls={<><MuteButton /><AudioEnableButton /></>}
+                    videoStyle={{ maxHeight: '33vh' }}
+                />
             )}
-        </Box>
-        {/* </RemoteStreamsGrid> */}
+            {/* </Box> */}
+        </RemoteStreamsGrid>
         <Grid container direction="row" justifyContent="flex-start"
             sx={{
                 position: 'absolute',
@@ -53,7 +56,9 @@ const Room = ({ name, credentials, registerInformation }: RoomProps) => {
             }}>
             {publishedStreams.map((stream, index) =>
                 <Grid item id={'published-stream-' + index} key={index} xs={4} md={3} lg={2}>
-                    <StreamComponent stream={stream} muted={true}
+                    <StreamComponent
+                        videoStyle={{ maxWidth: '100%' }}
+                        stream={stream} muted={true}
                         controls={<AudioEnableButton />} />
                 </Grid>)}
         </Grid>
