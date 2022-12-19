@@ -42,7 +42,7 @@ const Room = ({ name, credentials, registerInformation }: RoomProps) => {
                 <StreamComponent id={'subscribed-stream-' + index} key={index}
                     // sx={{ maxWidth: '100%' }}
                     stream={stream} muted={false}
-                    controls={<><MuteButton /><AudioEnableButton /></>}
+                    controls={<><MuteButton /></>}
                     videoStyle={{ maxHeight: '33vh' }}
                 />
             )}
