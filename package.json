@@ -1,6 +1,6 @@
 {
   "name": "@apirtc/mui-react-room",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "mui/react room using apirtc",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -20,7 +20,7 @@
     "room"
   ],
   "author": "Kevin Moyse",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "@apirtc/apirtc": "^4.7.8",
     "@emotion/react": "^11.10.5",
@@ -46,6 +46,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@apirtc/react-lib": "^1.0.2"
+    "@apirtc/react-lib": "^1.0.2",
+    "@apirtc/mui-react-lib": "^0.0.1"
   }
 }
