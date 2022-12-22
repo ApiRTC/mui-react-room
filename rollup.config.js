@@ -33,11 +33,13 @@ export default [
                     // '@apirtc/react-lib': 'ApiRtcReactLib', // commented out if react-lib is a dependency (not a peer dep)
                     '@apirtc/mui-react-lib': 'ApiRtcMuiReactLib',
                     '@mui/material/Box': 'MaterialUI.Box',
+                    '@mui/material/Button': 'MaterialUI.Button',
                     '@mui/material/Chip': 'MaterialUI.Chip',
+                    '@mui/material/Divider': 'MaterialUI.Divider',
                     '@mui/material/Grid': 'MaterialUI.Grid',
                     '@mui/material/Icon': 'MaterialUI.Icon',
-                    '@mui/material/Button': 'MaterialUI.Button',
                     '@mui/material/IconButton': 'MaterialUI.IconButton',
+                    '@mui/material/Snackbar': 'MaterialUI.Snackbar',
                     '@mui/material/Stack': 'MaterialUI.Stack',
                 }
             },
