@@ -20,14 +20,14 @@ import { Credentials, useSession, useCameraStream, useConversation, useConversat
 
 import {
     AudioEnableButton, MuteButton, Stream as StreamComponent, Grid as StreamsGrid,
-    useToggle
+    //useToggle
 } from '@apirtc/mui-react-lib'
 
 export type RoomProps = {
     name: string,
     credentials?: Credentials,
     registerInformation?: RegisterInformation,
-    onLeave: () => {}
+    onLeave?: () => {}
 };
 const COMPONENT_NAME = "Room";
 const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) => {
