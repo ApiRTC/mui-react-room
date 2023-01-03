@@ -9,6 +9,7 @@ export type CallButtonProps = {
     requestInit?: RequestInit,
     id?: string,
     text?: string,
+    serviceId: string,
     onSuccess?: (data: any) => void,
     onError?: (error: string) => void
 };
@@ -17,6 +18,7 @@ const CallButton = ({
     requestInit,
     id,
     text = 'Call',
+    serviceId,
     onSuccess = () => { },
     onError = () => { }
 }: CallButtonProps) => {
@@ -39,7 +41,7 @@ const CallButton = ({
     const onCall = (event: React.SyntheticEvent) => {
         event.preventDefault()
         postInProgress.current = true;
-        fetch(`${url}`, { ...requestInit, method: 'POST' }).then((res) => { return res.json() })
+        fetch(`${url}?serviceId=${serviceId}`, { ...requestInit, method: 'POST' }).then((res) => { return res.json() })
             .then(data => {
                 setCallId(data._id)
             }).catch((error) => {
