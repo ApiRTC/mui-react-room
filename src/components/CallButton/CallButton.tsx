@@ -41,9 +41,12 @@ const CallButton = ({
     const onCall = (event: React.SyntheticEvent) => {
         event.preventDefault()
         postInProgress.current = true;
-        fetch(`${url}?serviceId=${serviceId}`, { ...requestInit, method: 'POST' }).then((res) => { return res.json() })
+        fetch(`${url}?serviceId=${serviceId}`, {
+            ...requestInit,
+            method: 'POST', body: JSON.stringify({ serviceId: serviceId })
+        }).then((res) => { return res.json() })
             .then(data => {
-                setCallId(data._id)
+                setCallId(data._id || data.id)
             }).catch((error) => {
                 onError(error)
             }).finally(() => {
