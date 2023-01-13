@@ -1,7 +1,6 @@
-import React, { useEffect, useMemo } from 'react'
+import React from 'react'
 
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
 import Divider from '@mui/material/Divider'
 
 import IconButton from '@mui/material/IconButton'
@@ -11,7 +10,6 @@ import IconButton from '@mui/material/IconButton'
 // import MicOffIcon from '@mui/icons-material/MicOff'
 import Icon from '@mui/material/Icon'
 
-import Snackbar from '@mui/material/Snackbar'
 import Stack from '@mui/material/Stack'
 
 import { RegisterInformation } from '@apirtc/apirtc'
@@ -20,7 +18,6 @@ import { Credentials, useSession, useCameraStream, useConversation, useConversat
 
 import {
     AudioEnableButton, MuteButton, Stream as StreamComponent, Grid as StreamsGrid,
-    //useToggle
 } from '@apirtc/mui-react-lib'
 
 export type RoomProps = {
@@ -38,11 +35,6 @@ const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) =>
     const { publishedStreams, subscribedStreams, unpublish } = useConversationStreams(conversation,
         localStream ? [{ stream: localStream }] : []);
 
-    // const { status: snackbar, toggleStatus: toggleSnackbar } = useToggle(false);
-
-    //const displayStreams = useMemo(() => localStream ? Array(8).fill(localStream) : [], [localStream])
-    //const displayStreams = useMemo(() => subscribedStreams.length > 0 ? Array(9).fill(subscribedStreams[0]) : [], [subscribedStreams])
-
     const doLeave = (event: React.SyntheticEvent) => {
         event.preventDefault()
 
@@ -57,16 +49,11 @@ const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) =>
         if (onLeave) {
             onLeave()
         }
-    }
+    };
 
     return <Stack direction="row">
 
-        <Stack direction="column"
-        //  sx={{
-        //     minWidth: '240px', maxWidth: '240px',
-        // }}
-        >
-            {/* <Divider variant="middle" flexItem /> */}
+        <Stack direction="column">
             <IconButton id='leave' color="error" aria-label="leave"
                 onClick={doLeave}>
                 <Icon>call_end</Icon>
@@ -84,7 +71,6 @@ const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) =>
                     <StreamComponent id={'subscribed-stream-' + index} key={index}
                         stream={stream} muted={false}
                         controls={<><AudioEnableButton disabled={true} /><MuteButton /></>}
-                    // videoStyle={{ maxHeight: '33vh' }}
                     />
                 )}
             </StreamsGrid>
@@ -93,8 +79,7 @@ const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) =>
                 bottom: '4px', left: '4px',
                 opacity: [0.9, 0.8, 0.7],
                 maxWidth: '128px',
-                border: 1,
-                borderColor: 'primary.main'
+                border: 1, borderColor: 'primary.main'
             }}>
                 {publishedStreams.map((stream, index) =>
                     <StreamComponent id={'published-stream-' + index} key={index}
@@ -108,6 +93,15 @@ const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) =>
 }
 export default Room;
 
+// videoStyle={{ maxHeight: '33vh' }}
+
+// import Snackbar from '@mui/material/Snackbar'
+// const { status: snackbar, toggleStatus: toggleSnackbar } = useToggle(false);
+
+//const displayStreams = useMemo(() => localStream ? Array(8).fill(localStream) : [], [localStream])
+//const displayStreams = useMemo(() => subscribedStreams.length > 0 ? Array(9).fill(subscribedStreams[0]) : [], [subscribedStreams])
+
+{/* <Divider variant="middle" flexItem /> */ }
 {/* <Snackbar
             anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
             open={snackbar}
