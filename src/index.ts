@@ -11,13 +11,13 @@ const INFO: LogLevel = { level: 'info', isDebugEnabled: false, isInfoEnabled: tr
 
 declare global {
     var apirtcMuiReactRoomLogLevel: LogLevel;
-    var setApirtcMuiReactRoomLogLevel: Function
+    var setApirtcMuiReactRoomLogLevel: (logLevelText: 'debug' | 'info' | 'warn' | 'error') => void;
 }
 
 // a default value MUST be set in case application using the library does not override it
 globalThis.apirtcMuiReactRoomLogLevel = INFO;
 
-export function setLogLevel(logLevelText: 'debug' | 'info' | 'warn' | 'error' | string) {
+export function setLogLevel(logLevelText: 'debug' | 'info' | 'warn' | 'error') {
     switch (logLevelText) {
         case 'debug':
             globalThis.apirtcMuiReactRoomLogLevel = { level: 'debug', isDebugEnabled: true, isInfoEnabled: true, isWarnEnabled: true };
