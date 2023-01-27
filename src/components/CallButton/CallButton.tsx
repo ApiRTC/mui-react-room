@@ -1,8 +1,8 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react';
 
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
 
-import useIntervalAsync from '../../hooks/useIntervalAsync'
+import useIntervalAsync from '../../hooks/useIntervalAsync';
 
 export type CallButtonProps = {
     url: string,

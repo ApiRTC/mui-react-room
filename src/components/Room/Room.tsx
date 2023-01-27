@@ -14,10 +14,10 @@ import Stack from '@mui/material/Stack'
 
 import { RegisterInformation } from '@apirtc/apirtc'
 
-import { Credentials, useSession, useCameraStream, useConversation, useConversationStreams } from '@apirtc/react-lib'
+import { Credentials, useCameraStream, useConversation, useConversationStreams, useSession } from '@apirtc/react-lib'
 
 import {
-    AudioEnableButton, MuteButton, Stream as StreamComponent, Grid as StreamsGrid,
+    AudioEnableButton, Grid as StreamsGrid, MuteButton, Stream as StreamComponent
 } from '@apirtc/mui-react-lib'
 
 export type RoomProps = {
