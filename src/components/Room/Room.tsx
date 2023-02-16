@@ -12,7 +12,9 @@ import { RegisterInformation } from '@apirtc/apirtc'
 import {
     AudioEnableButton, Grid as StreamsGrid, MuteButton, Stream as StreamComponent, VideoEnableButton
 } from '@apirtc/mui-react-lib'
-import { Credentials, useCameraStream, useConversation, useConversationStreams, useSession } from '@apirtc/react-lib'
+import {
+    Credentials, useCameraStream, useConversation, useConversationStreams, useSession
+} from '@apirtc/react-lib'
 
 export type RoomProps = {
     name: string,
@@ -22,6 +24,9 @@ export type RoomProps = {
 };
 const COMPONENT_NAME = "Room";
 const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) => {
+
+    // setMuiReactLibLogLevel('debug')
+    // setReactLibLogLevel('debug')
 
     // ApiRTC react-lib hooks
     const { session } = useSession(credentials ?? { apiKey: "myDemoApiKey" }, registerInformation);
