@@ -10,7 +10,7 @@ import Icon from '@mui/material/Icon'
 
 import { RegisterInformation } from '@apirtc/apirtc'
 import {
-    AudioEnableButton, Grid as StreamsGrid, MuteButton, Stream as StreamComponent, VideoEnableButton
+    Audio, AudioEnableButton, Grid as StreamsGrid, MuteButton, Stream as StreamComponent, Video, VideoEnableButton
 } from '@apirtc/mui-react-lib'
 import {
     Credentials, useCameraStream, useConversation, useConversationStreams, useSession
@@ -50,14 +50,14 @@ const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) =>
             position: 'relative',
             minHeight: '360px', minWidth: '640px',
         }}>
-
             {/* Remote streams */}
             <StreamsGrid>
                 {subscribedStreams.map((stream, index) =>
                     <StreamComponent id={'subscribed-stream-' + index} key={index}
                         stream={stream} muted={false}
-                        controls={<><AudioEnableButton disabled={true} /><MuteButton /></>}
-                    />
+                        controls={<><AudioEnableButton disabled={true} /><MuteButton /></>}>
+                        {stream.hasVideo() ? <Video /> : <Audio />}
+                    </StreamComponent>
                 )}
             </StreamsGrid>
 
@@ -70,9 +70,10 @@ const Room = ({ name, credentials, registerInformation, onLeave }: RoomProps) =>
             }}>
                 {publishedStreams.map((stream, index) =>
                     <StreamComponent id={'published-stream-' + index} key={index}
-                        videoStyle={{ maxWidth: '100%' }}
                         stream={stream} muted={true}
-                        controls={<><AudioEnableButton /><VideoEnableButton /></>} />
+                        controls={<><AudioEnableButton /><VideoEnableButton /></>}>
+                        {stream.hasVideo() ? <Video /> : <Audio />}
+                    </StreamComponent>
                 )}
             </StreamsGrid>
 

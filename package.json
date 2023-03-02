@@ -31,7 +31,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.9",
     "react": ">=17"
-  },
+ },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-node-resolve": "^13.1.3",
