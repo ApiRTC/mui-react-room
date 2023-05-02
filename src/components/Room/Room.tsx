@@ -54,8 +54,7 @@ const Room = ({ sx, name, credentials, registerInformation, onLeave }: RoomProps
 
     return <Box sx={{
         ...sx,
-        position: 'relative',
-        minHeight: '208px',
+        position: 'relative'
     }}>
         <ApiRtcGrid sx={{ height: '100%', width: '100%' }}>
             {subscribedStreams.map((stream, index) =>
