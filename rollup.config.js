@@ -34,6 +34,7 @@ export default [
                     // '@apirtc/mui-react-lib': 'ApiRtcMuiReactLib',
                     '@mui/material/Box': 'MaterialUI.Box',
                     '@mui/material/Button': 'MaterialUI.Button',
+                    '@mui/material/CircularProgress': 'MaterialUI.CircularProgress',
                     '@mui/material/Icon': 'MaterialUI.Icon',
                     '@mui/material/IconButton': 'MaterialUI.IconButton',
                     '@mui/material/Stack': 'MaterialUI.Stack',
