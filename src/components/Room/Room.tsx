@@ -67,7 +67,8 @@ const Room = ({ sx, name, credentials, registerInformation, onLeave }: RoomProps
                     {stream.hasVideo() ? <Video
                         sx={video_sizing}
                         style={{
-                            ...video_sizing, objectFit: 'cover'
+                            ...video_sizing,
+                            objectFit: 'cover'
                         }} /> : <Audio />}
                 </ApiRtcStreamComponent>
             )}
@@ -92,7 +93,8 @@ const Room = ({ sx, name, credentials, registerInformation, onLeave }: RoomProps
                         <Video
                             sx={video_sizing}
                             style={{
-                                ...video_sizing, objectFit: 'cover'
+                                ...video_sizing,
+                                objectFit: 'cover'
                             }} /> :
                         <Audio />}
                 </ApiRtcStreamComponent>
