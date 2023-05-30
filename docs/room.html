@@ -56,7 +56,7 @@
         console.log(queryString);
         const urlParams = new URLSearchParams(queryString);
 
-        const apiKey = urlParams.get(CONVERSATION_NAME_SEARCH_PARAMETER) ?? 'myDemoApiKey';
+        const apiKey = urlParams.get(API_KEY_SEARCH_PARAMETER) ?? 'myDemoApiKey';
         const conversationName = urlParams.get(CONVERSATION_NAME_SEARCH_PARAMETER) ?? uuidv4();
 
         const domContainer = document.querySelector('#room-container');
@@ -80,7 +80,7 @@
         ));
 
         const a = document.getElementById('room-link');
-        a.href = `${window.location.origin}${window.location.pathname}?${CONVERSATION_NAME_SEARCH_PARAMETER}=${conversationName}`;
+        a.href = `${window.location.origin}${window.location.pathname}?${API_KEY_SEARCH_PARAMETER}=${apiKey}&${CONVERSATION_NAME_SEARCH_PARAMETER}=${conversationName}`;
     </script>
 
 </body>
