@@ -30,8 +30,9 @@ export default [
                 globals: {
                     'react': 'React',
                     '@apirtc/apirtc': 'apiRTC',
+                    '@apirtc/mui-react-lib': 'ApiRtcMuiReactLib',
+                    '@apirtc/react-lib': 'ApiRtcReactLib',
                     // '@apirtc/react-lib': 'ApiRtcReactLib', // commented out if react-lib is a dependency (not a peer dep)
-                    // '@apirtc/mui-react-lib': 'ApiRtcMuiReactLib',
                     '@mui/material/Box': 'MaterialUI.Box',
                     '@mui/material/Button': 'MaterialUI.Button',
                     '@mui/material/CircularProgress': 'MaterialUI.CircularProgress',

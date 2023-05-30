@@ -1,6 +1,6 @@
 {
   "name": "@apirtc/mui-react-room",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "mui/react Room component using ApiRTC",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
@@ -27,9 +27,11 @@
   },
   "peerDependencies": {
     "@apirtc/apirtc": "^5.0.11",
+    "@apirtc/mui-react-lib": "^1.0.4",
+    "@apirtc/react-lib": "^1.0.14",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.0",
+    "@mui/material": "^5.13.3",
     "react": ">=17"
   },
   "devDependencies": {
@@ -46,9 +48,5 @@
     "rollup-plugin-typescript2": "^0.31.2",
     "ts-jest": "^28.0.2",
     "typescript": "^4.9.4"
-  },
-  "dependencies": {
-    "@apirtc/mui-react-lib": "^1.0.2",
-    "@apirtc/react-lib": "^1.0.12"
   }
 }
