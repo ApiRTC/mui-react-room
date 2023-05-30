@@ -38,7 +38,7 @@
     <!-- style="border: medium solid #0078D4" -->
     <div id="room-container"></div>
 
-    <a id="room-link" style="margin:1em auto;display:block;text-align:center;">Get Link</a>
+    <a id="room-link" style="margin:1em auto;display:block;text-align:center;">Room Link</a>
 
     <!-- Load the Room Component (React@18 style) -->
     <script type="module">
@@ -52,10 +52,7 @@
         const API_KEY_SEARCH_PARAMETER = 'apiKey';
         const CONVERSATION_NAME_SEARCH_PARAMETER = 'name';
 
-        const queryString = window.location.search;
-        console.log(queryString);
-        const urlParams = new URLSearchParams(queryString);
-
+        const urlParams = new URLSearchParams(window.location.search);
         const apiKey = urlParams.get(API_KEY_SEARCH_PARAMETER) ?? 'myDemoApiKey';
         const conversationName = urlParams.get(CONVERSATION_NAME_SEARCH_PARAMETER) ?? uuidv4();
 
