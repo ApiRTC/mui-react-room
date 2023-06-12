@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Add ApiRTC Room in one minute in html page</title>
+    <!-- Load Google Material icons (required for mui Icon to work) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- <link href="./style.css" rel="stylesheet" /> -->
+</head>
+
+<body style="margin:0 0;background-color: black;">
+    <!-- Load React, required by react-lib (as peer dependency) -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+    <!-- Load Material UI -->
+    <script src="https://unpkg.com/@emotion/react@latest/dist/emotion-react.umd.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@emotion/styled@latest/dist/emotion-styled.umd.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@mui/material@latest/umd/material-ui.production.min.js" crossorigin></script>
+
+    <!-- Load ApiRTC -->
+    <!-- <script type="text/javascript" src="https://cloud.apirtc.com/apiRTC/apiRTC-latest.min.js"></script> -->
+    <script src="https://dev.cdn.apizee.com/apiRTC/apiRTC-with-sio.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@apirtc/react-lib@latest/dist/react-lib.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@apirtc/mui-react-lib@latest/dist/mui-react-lib.production.min.js"
+        crossorigin></script>
+
+    <!-- Load ApiRTC Room library -->
+    <!-- <script src="./mui-react-room/dist/mui-react-room.production.min.js"></script> -->
+    <script src="https://unpkg.com/@apirtc/mui-react-room@latest/dist/mui-react-room.production.min.js"
+        crossorigin></script>
+
+    <!-- We will put our React component inside this div. -->
+    <!-- style="border: medium solid #0078D4" -->
+    <div id="room-container"></div>
+
+    <a id="room-link" style="margin:1em auto;display:block;text-align:center;">Room Link</a>
+
+    <!-- Load the Room Component (React@18 style) -->
+    <script type="module">
+
+        function uuidv4() {
+            return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
+        }
+
+        const API_KEY_SEARCH_PARAMETER = 'apiKey';
+        const CONVERSATION_NAME_SEARCH_PARAMETER = 'name';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const apiKey = urlParams.get(API_KEY_SEARCH_PARAMETER) ?? 'myDemoApiKey';
+        const conversationName = urlParams.get(CONVERSATION_NAME_SEARCH_PARAMETER) ?? uuidv4();
+
+        const domContainer = document.querySelector('#room-container');
+
+        const root = ReactDOM.createRoot(domContainer);
+        root.render(React.createElement(
+            ApiRtcMuiReactRoom.Room,
+            {
+                sx: {
+                    height: '99vh',// to prevent vertical scrollbar on Chrome
+                    width: '100vw',
+                    maxWidth: '100%' // to prevent horizontal scrollbar on Chrome
+                },
+                name: conversationName,
+                credentials: { apiKey: apiKey },
+                //registerInformation: { cloudUrl: 'https://cloud.apirtc.com' },
+                onLeave: () => {
+                    ReactDOM.unmountComponentAtNode(domContainer);
+                }
+            }
+        ));
+
+        const a = document.getElementById('room-link');
+        a.href = `${window.location.origin}${window.location.pathname}?${API_KEY_SEARCH_PARAMETER}=${apiKey}&${CONVERSATION_NAME_SEARCH_PARAMETER}=${conversationName}`;
+    </script>
+
+</body>
+
+</html>

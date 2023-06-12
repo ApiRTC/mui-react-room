@@ -26,12 +26,12 @@
     "url": "https://github.com/ApiRTC/mui-react-room"
   },
   "peerDependencies": {
-    "@apirtc/apirtc": "^5.0.11",
+    "@apirtc/apirtc": "^5.0.13",
     "@apirtc/mui-react-lib": "^1.0.4",
     "@apirtc/react-lib": "^1.0.14",
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.3",
+    "@mui/material": "^5.13.5",
     "react": ">=17"
   },
   "devDependencies": {
